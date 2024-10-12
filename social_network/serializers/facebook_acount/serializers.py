@@ -1,8 +1,18 @@
-from social_network.serializers.serializers import SocialNetworkSerializer
+from rest_framework import serializers
 from social_network.models import FacebookAccount
 
 
-class FacebookAccountSerializer(SocialNetworkSerializer):
-    class Meta(SocialNetworkSerializer.Meta):
+class FacebookAccountSerializer(serializers.ModelSerializer):
+    class Meta:
         model = FacebookAccount
-        fields = SocialNetworkSerializer.Meta.fields + ["page_id", "page_access_token"]
+        fields = [
+            "id",
+            "name",
+            "social_network_type",
+            "created_at",
+            "status",
+            "user_owner",
+            "page_id",
+            "page_access_token",
+        ]
+        read_only_fields = ["created_at", "user_owner"]
