@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     # Personal Apps
     "authentication",
+    "social_network",
 ]
 
 REST_FRAMEWORK = {
