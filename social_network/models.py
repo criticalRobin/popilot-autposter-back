@@ -13,6 +13,7 @@ class SocialNetwork(models.Model):
         max_length=2, choices=SOCIAL_NETWORK_CHOICES, default="IG"
     )
     created_at = models.DateTimeField(auto_now_add=True)
+    status = models.BooleanField(default=True)
     user_owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
