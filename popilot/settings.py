@@ -26,7 +26,9 @@ SECRET_KEY = "django-insecure-_(3qgik6r7h768f+_c+0^b9&c97m00wdxk5%h3#v7^_ijdwx8(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+AUTH_USER_MODEL = "authentication.CustomUser"
 
 
 # Application definition
@@ -40,6 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest_framework_simplejwt",
+    # Personal Apps
+    "authentication",
 ]
 
 REST_FRAMEWORK = {
