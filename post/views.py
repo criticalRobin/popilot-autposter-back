@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from post.serializers import PostSerializer
+from post.serializers import PostSerializer, PostListSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
@@ -8,6 +8,15 @@ from post.utils.social_network_manager import SocialNetworkManager as snm
 from post.utils.post_manager import PostManager
 from social_network.models import FacebookAccount, InstagramAccount, XAccount
 from post.models import Post
+
+
+class PostListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        posts = Post.objects.filter(user=request.user)
+        serializer = PostListSerializer(posts, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class PostCreateView(APIView):

@@ -11,7 +11,7 @@ class Post(models.Model):
     image_url = models.URLField(max_length=500, blank=True, null=True)
     social_networks = models.ManyToManyField(SocialNetwork, related_name="posts")
     created_at = models.DateTimeField(auto_now_add=True)
-    scheduled_at = models.DateTimeField()
+    scheduled_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return
