@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from model_utils.managers import InheritanceManager
 
 
 class SocialNetwork(models.Model):
@@ -15,6 +16,8 @@ class SocialNetwork(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=True)
     user_owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    objects = InheritanceManager()
 
     def __str__(self):
         return f"{self.name} ({self.get_social_network_type_display()})"
