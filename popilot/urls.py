@@ -25,4 +25,5 @@ urlpatterns = [
     path("api/social-network/", include("social_network.urls")),
     path("api/auth/", include("authentication.urls")),
     path("api/post/", include("post.urls")),
+    path("api/payment/", include("payment.urls")),
 ]

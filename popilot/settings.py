@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-_(3qgik6r7h768f+_c+0^b9&c97m00wdxk5%h3#v7^_ijdwx8("
-
+STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "authentication",
     "social_network",
     "post",
+    "payment",
 ]
 
 cloudinary.config(
