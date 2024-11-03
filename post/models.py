@@ -12,6 +12,7 @@ class Post(models.Model):
     social_networks = models.ManyToManyField(SocialNetwork, related_name="posts")
     created_at = models.DateTimeField(auto_now_add=True)
     scheduled_at = models.DateTimeField(null=True, blank=True)
+    posted = models.BooleanField(default=True)
 
     def __str__(self):
         return
