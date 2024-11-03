@@ -20,7 +20,7 @@ class SocialNetwork(models.Model):
     objects = InheritanceManager()
 
     def __str__(self):
-        return f"{self.name} ({self.get_social_network_type_display()})"
+        return f"{self.id}"
 
 
 class FacebookAccount(SocialNetwork):
@@ -28,7 +28,7 @@ class FacebookAccount(SocialNetwork):
     page_access_token = models.CharField(max_length=500)
 
     def __str__(self):
-        return f"Facebook Page: {self.name} (ID: {self.page_id})"
+        return f"{self.id}"
 
 
 class InstagramAccount(SocialNetwork):
@@ -36,7 +36,7 @@ class InstagramAccount(SocialNetwork):
     password = models.CharField(max_length=255)
 
     def __str__(self):
-        return f"Instagram Account: {self.username}"
+        return f"{self.id}"
 
 
 class XAccount(SocialNetwork):
@@ -47,4 +47,4 @@ class XAccount(SocialNetwork):
     bearer_token = models.CharField(max_length=500)
 
     def __str__(self):
-        return f"X (Twitter) Account: {self.name}"
+        return f"{self.id}"
