@@ -20,11 +20,9 @@ class CreateUserView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
         serializer = CreateUserSerializer(data=request.data)
 
         if serializer.is_valid():
-            print("Hola pedrito")
             user = serializer.save()
             user.set_password(user.password)
             user.save()
